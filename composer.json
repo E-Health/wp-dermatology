@@ -1,0 +1,33 @@
+{
+	"name": "wp-dermatology",
+	"description": "A plugin for dermatology bloggers and clinic owners!",
+	"keywords": ["wordpress", "plugin", "generator-plugin-wp"],
+	"homepage": "http://dermatologist.co.in/wp-dermatology",
+	"license": "GPLv2",
+	"authors": [
+	{
+		"name": "Bell Eapen",
+		"homepage": "http://nuchange.ca/ehealth-resume"
+	}
+	],
+	"minimum-stability": "dev",
+	"type": "wordpress-plugin",
+	"autoload": {
+		"classmap": ["wp-dermatology.php", "includes/"]
+	},
+	"require": {
+		"php": ">=5.2",
+		"xrstf/composer-php52": "1.*"
+	},
+	"scripts": {
+        "post-install-cmd": [
+            "xrstf\\Composer52\\Generator::onPostInstallCmd"
+        ],
+        "post-update-cmd": [
+            "xrstf\\Composer52\\Generator::onPostInstallCmd"
+        ],
+        "post-autoload-dump": [
+            "xrstf\\Composer52\\Generator::onPostInstallCmd"
+        ]
+    }
+}

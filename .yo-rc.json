@@ -1,0 +1,17 @@
+{
+  "generator-plugin-wp": {
+    "name": "WP Dermatology",
+    "homepage": "http://dermatologist.co.in/wp-dermatology",
+    "description": "A plugin for dermatology bloggers and clinic owners!",
+    "version": "0.0.1",
+    "author": "Bell Eapen",
+    "authoremail": "wp.dermatology@gulfdoctor.net",
+    "authorurl": "http://nuchange.ca/ehealth-resume",
+    "license": "GPLv2",
+    "slug": "wp-dermatology",
+    "classname": "WP_Dermatology",
+    "classprefix": "WPD_",
+    "prefix": "wp_dermatology",
+    "year": 2016
+  }
+}
