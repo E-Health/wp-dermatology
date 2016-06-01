@@ -73,3 +73,6 @@ vendor/
 
 release
 
+# phpstorm
+.idea
+
