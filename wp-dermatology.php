@@ -47,6 +47,7 @@ require 'vendor/autoload_52.php';
  * Include other plugin classes.
  */
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-dermbase.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-peelscore.php';
 
 
 /**
@@ -105,6 +106,14 @@ final class WP_Dermatology {
 	protected $dermbase;
 
 	/**
+	 * Instance of WPD_Peelscore
+	 *
+	 * @since NEXT
+	 * @var WPD_Peelscore
+	 */
+	protected $peelscore;
+
+	/**
 	 * Creates or returns an instance of this class.
 	 *
 	 * @since  NEXT
@@ -138,6 +147,7 @@ final class WP_Dermatology {
 	public function plugin_classes() {
 		// Attach other plugin classes to the base plugin class.
 		$this->dermbase = new WPD_Dermbase( $this );
+		$this->peelscore = new WPD_Peelscore( $this );
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
@@ -262,6 +272,7 @@ final class WP_Dermatology {
 			case 'url':
 			case 'path':
 			case 'dermbase':
+			case 'peelscore':
 				return $this->$field;
 			default:
 				throw new Exception( 'Invalid '. __CLASS__ .' property: ' . $field );
