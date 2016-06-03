@@ -3,7 +3,7 @@
  * Plugin Name: WP Dermatology
  * Plugin URI:  http://dermatologist.co.in/wp-dermatology
  * Description: A plugin for dermatology bloggers and clinic owners!
- * Version:     0.0.1
+ * Version:     0.1.1
  * Author:      Bell Eapen
  * Author URI:  http://nuchange.ca/ehealth-resume
  * Donate link: http://dermatologist.co.in/wp-dermatology
@@ -14,7 +14,7 @@
  * @link http://dermatologist.co.in/wp-dermatology
  *
  * @package WP Dermatology
- * @version 0.0.1
+ * @version 0.1.1
  */
 
 /**
@@ -48,12 +48,18 @@ require 'vendor/autoload_52.php';
  */
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-dermbase.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-peelscore.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-tascderm.php';
+
+/**
+ * Include other vendor plugins.
+ */
+require_once plugin_dir_path( __FILE__ ) . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
 
 
 /**
  * Main initiation class
  *
- * @since  NEXT
+ * @since  0.1.1
  */
 final class WP_Dermatology {
 
@@ -61,15 +67,15 @@ final class WP_Dermatology {
 	 * Current version
 	 *
 	 * @var  string
-	 * @since  NEXT
+	 * @since  0.1.1
 	 */
-	const VERSION = '0.0.1';
+	const VERSION = '0.1.1';
 
 	/**
 	 * URL of plugin directory
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since  0.1.1
 	 */
 	protected $url = '';
 
@@ -77,7 +83,7 @@ final class WP_Dermatology {
 	 * Path of plugin directory
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since  0.1.1
 	 */
 	protected $path = '';
 
@@ -85,7 +91,7 @@ final class WP_Dermatology {
 	 * Plugin basename
 	 *
 	 * @var string
-	 * @since  NEXT
+	 * @since  0.1.1
 	 */
 	protected $basename = '';
 
@@ -93,14 +99,14 @@ final class WP_Dermatology {
 	 * Singleton instance of plugin
 	 *
 	 * @var WP_Dermatology
-	 * @since  NEXT
+	 * @since  0.1.1
 	 */
 	protected static $single_instance = null;
 
 	/**
 	 * Instance of WPD_Dermbase
 	 *
-	 * @since NEXT
+	 * @since 0.1.1
 	 * @var WPD_Dermbase
 	 */
 	protected $dermbase;
@@ -108,15 +114,31 @@ final class WP_Dermatology {
 	/**
 	 * Instance of WPD_Peelscore
 	 *
-	 * @since NEXT
+	 * @since 0.1.1
 	 * @var WPD_Peelscore
 	 */
 	protected $peelscore;
 
 	/**
+	 * Instance of WPD_Tascderm
+	 *
+	 * @since 0.1.1
+	 * @var WPD_Tascderm
+	 */
+	protected $tascderm;
+
+	/**
+	 * Instance of WPD_MyUpdateChecker
+	 *
+	 * @since 0.1.1	
+	 * @var WPD_MyUpdateChecker
+	 */	
+	protected $myUpdateChecker;
+
+	/**
 	 * Creates or returns an instance of this class.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 * @return WP_Dermatology A single instance of this class.
 	 */
 	public static function get_instance() {
@@ -130,7 +152,7 @@ final class WP_Dermatology {
 	/**
 	 * Sets up our plugin
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 */
 	protected function __construct() {
 		$this->basename = plugin_basename( __FILE__ );
@@ -141,19 +163,25 @@ final class WP_Dermatology {
 	/**
 	 * Attach other plugin classes to the base plugin class.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 * @return void
 	 */
 	public function plugin_classes() {
 		// Attach other plugin classes to the base plugin class.
 		$this->dermbase = new WPD_Dermbase( $this );
 		$this->peelscore = new WPD_Peelscore( $this );
+		$this->tascderm = new WPD_Tascderm( $this );
+		// Update Checker
+		$this->myUpdateChecker = PucFactory::buildUpdateChecker(
+    		'http://nuchange.ca/wp-update-server/?action=get_metadata&slug=wp-dermatology',
+    		__FILE__
+		);
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
 	 * Add hooks and filters
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 * @return void
 	 */
 	public function hooks() {
@@ -164,7 +192,7 @@ final class WP_Dermatology {
 	/**
 	 * Activate the plugin
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 * @return void
 	 */
 	public function _activate() {
@@ -176,7 +204,7 @@ final class WP_Dermatology {
 	 * Deactivate the plugin
 	 * Uninstall routines should be in uninstall.php
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 * @return void
 	 */
 	public function _deactivate() {}
@@ -184,7 +212,7 @@ final class WP_Dermatology {
 	/**
 	 * Init hooks
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 * @return void
 	 */
 	public function init() {
@@ -202,7 +230,7 @@ final class WP_Dermatology {
 	 * Check if the plugin meets requirements and
 	 * disable it if they are not present.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 * @return boolean result of meets_requirements
 	 */
 	public function check_requirements() {
@@ -223,7 +251,7 @@ final class WP_Dermatology {
 	/**
 	 * Deactivates this plugin, hook this function on admin_init.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 * @return void
 	 */
 	public function deactivate_me() {
@@ -233,7 +261,7 @@ final class WP_Dermatology {
 	/**
 	 * Check that all plugin requirements are met
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 * @return boolean True if requirements are met.
 	 */
 	public static function meets_requirements() {
@@ -246,7 +274,7 @@ final class WP_Dermatology {
 	/**
 	 * Adds a notice to the dashboard if the plugin requirements are not met
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 * @return void
 	 */
 	public function requirements_not_met_notice() {
@@ -259,7 +287,7 @@ final class WP_Dermatology {
 	/**
 	 * Magic getter for our object.
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 * @param string $field Field to get.
 	 * @throws Exception Throws an exception if the field is invalid.
 	 * @return mixed
@@ -273,6 +301,7 @@ final class WP_Dermatology {
 			case 'path':
 			case 'dermbase':
 			case 'peelscore':
+			case 'tascderm':
 				return $this->$field;
 			default:
 				throw new Exception( 'Invalid '. __CLASS__ .' property: ' . $field );
@@ -284,7 +313,7 @@ final class WP_Dermatology {
  * Grab the WP_Dermatology object and return it.
  * Wrapper for WP_Dermatology::get_instance()
  *
- * @since  NEXT
+ * @since  0.1.1
  * @return WP_Dermatology  Singleton instance of plugin class.
  */
 function wp_dermatology() {
