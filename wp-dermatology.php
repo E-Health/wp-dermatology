@@ -48,6 +48,7 @@ require 'vendor/autoload_52.php';
  */
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-dermbase.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-peelscore.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-tascderm.php';
 
 /**
  * Include other vendor plugins.
@@ -119,9 +120,17 @@ final class WP_Dermatology {
 	protected $peelscore;
 
 	/**
-	 * Instance of WPD_Peelscore
+	 * Instance of WPD_Tascderm
 	 *
 	 * @since NEXT
+	 * @var WPD_Tascderm
+	 */
+	protected $tascderm;
+
+	/**
+	 * Instance of WPD_MyUpdateChecker
+	 *
+	 * @since NEXT	
 	 * @var WPD_MyUpdateChecker
 	 */	
 	protected $myUpdateChecker;
@@ -161,6 +170,7 @@ final class WP_Dermatology {
 		// Attach other plugin classes to the base plugin class.
 		$this->dermbase = new WPD_Dermbase( $this );
 		$this->peelscore = new WPD_Peelscore( $this );
+		$this->tascderm = new WPD_Tascderm( $this );
 		// Update Checker
 		$this->myUpdateChecker = PucFactory::buildUpdateChecker(
     		'http://nuchange.ca/wp-update-server/?action=get_metadata&slug=wp-dermatology',
@@ -291,6 +301,7 @@ final class WP_Dermatology {
 			case 'path':
 			case 'dermbase':
 			case 'peelscore':
+			case 'tascderm':
 				return $this->$field;
 			default:
 				throw new Exception( 'Invalid '. __CLASS__ .' property: ' . $field );
