@@ -2,28 +2,28 @@
 /**
  * WP Dermatology Dermbase
  *
- * @since NEXT
+ * @since 0.1.1
  * @package WP Dermatology
  */
 
 /**
  * WP Dermatology Dermbase.
  *
- * @since NEXT
+ * @since 0.1.1
  */
 class WPD_Dermbase {
 	/**
 	 * Parent plugin class
 	 *
 	 * @var   class
-	 * @since NEXT
+	 * @since 0.1.1
 	 */
 	protected $plugin = null;
 
 	/**
 	 * Constructor
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 * @param  object $plugin Main plugin object.
 	 * @return void
 	 */
@@ -35,7 +35,7 @@ class WPD_Dermbase {
 	/**
 	 * Initiate our hooks
 	 *
-	 * @since  NEXT
+	 * @since  0.1.1
 	 * @return void
 	 */
 	public function hooks() {

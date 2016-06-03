@@ -2,14 +2,14 @@
 /**
  * WP Dermatology Tascderm
  *
- * @since NEXT
+ * @since 0.1.1
  * @package WP Dermatology
  */
 
 /**
  * WP Dermatology Tascderm.
  *
- * @since NEXT
+ * @since 0.1.1
  */
 class WPD_Tascderm
 {
@@ -17,14 +17,14 @@ class WPD_Tascderm
      * Parent plugin class
      *
      * @var   class
-     * @since NEXT
+     * @since 0.1.1
      */
     protected $plugin = null;
 
     /**
      * Constructor
      *
-     * @since  NEXT
+     * @since  0.1.1
      * @param  object $plugin Main plugin object.
      * @return void
      */
@@ -37,7 +37,7 @@ class WPD_Tascderm
     /**
      * Initiate our hooks
      *
-     * @since  NEXT
+     * @since  0.1.1
      * @return void
      */
     public function hooks()
