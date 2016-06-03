@@ -43,6 +43,8 @@ class WPD_Peelscore {
         add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ) );
         add_action( 'save_post', array( $this, 'save' ) );
 
+        add_filter( 'the_content', array( $this, 'render_peelscore' ) );
+
     }
 
     public function add_meta_box( $post_type ) {
@@ -61,6 +63,25 @@ class WPD_Peelscore {
                 $_POST['wp_dermatology_peelscore']
             );
         }
+    }
+
+    public function render_peelscore($content){
+        global $post;
+        $peelscore = get_post_meta( $post->ID,
+            '_wp_dermatology_peelscore', true );
+        if($peelscore && is_single()) {
+
+            $content .= "            <!-- GulfDoctor.net peel score code begin -->
+            <p><a href='http://gulfdoctor.net/peelscore' target='_blank'>
+                    <img src='http://gulfdoctor.net/peelscore/$peelscore.jpg'
+                         alt='GulfDoctor.net peel rating' style='width: 32px; height: 32px;'/><br/>
+                    <span style='font-style: italic; font-size: 10pt'>My Rating: <span
+                            class='rating'>1</span> peels</span>
+                    <br/><span style='font-style: italic; font-size: 10pt'>What is peel score?</span><br/></a></p>
+            <!-- GulfDoctor.net peel score code end -->";
+
+        }
+        return $content;
     }
 
     public function render_form( $post ) {
