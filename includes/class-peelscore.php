@@ -74,9 +74,9 @@ class WPD_Peelscore {
             $content .= "            <!-- GulfDoctor.net peel score code begin -->
             <p><a href='http://gulfdoctor.net/peelscore' target='_blank'>
                     <img src='http://gulfdoctor.net/peelscore/$peelscore.jpg'
-                         alt='GulfDoctor.net peel rating' style='width: 32px; height: 32px;'/><br/>
+                         alt='GulfDoctor.net peel rating' style='width: 64px; height: 64px;'/><br/>
                     <span style='font-style: italic; font-size: 10pt'>My Rating: <span
-                            class='rating'>1</span> peels</span>
+                            class='rating'>$peelscore</span> peel(s)</span>
                     <br/><span style='font-style: italic; font-size: 10pt'>What is peel score?</span><br/></a></p>
             <!-- GulfDoctor.net peel score code end -->";
 
