@@ -157,7 +157,7 @@ module.exports = function( grunt ) {
             dist: {
                 options: {
                     mode: 'zip',
-                    archive: './release/<%= pkg.name %>.zip'
+                    archive: './release/<%= pkg.name %>.<%= pkg.version %>.zip'
                 },
                 expand: true,
                 cwd: 'release/<%= pkg.version %>',
@@ -191,7 +191,7 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'default', ['styles', 'scripts', 'php'] );
 
 	grunt.registerTask( 'version', [ 'default', 'replace:version_php', 'replace:version_readme' ] );
-	grunt.registerTask( 'release', [ 'clean:release', 'replace:readme_txt', 'copy', 'compress' ] );
+	grunt.registerTask( 'release', [ 'clean:release', 'replace:readme_txt', 'copy', 'compress', 'wp_deploy' ] );
 
 	grunt.util.linefeed = '\n';
 };
