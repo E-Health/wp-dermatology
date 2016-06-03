@@ -31,5 +31,6 @@ $this->myUpdateChecker = PucFactory::buildUpdateChecker(
     		__FILE__
 		);
 ```
+* Gruntfile changed.
 
 
