@@ -17,7 +17,8 @@
 	},
 	"require": {
 		"php": ">=5.2",
-		"xrstf/composer-php52": "1.*"
+		"xrstf/composer-php52": "1.*",
+		"yahnis-elsts/plugin-update-checker": ">=1.0"
 	},
 	"scripts": {
         "post-install-cmd": [

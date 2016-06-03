@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b3e6f9df82a1ff5f8ce00c8669037896",
-    "content-hash": "78eee62dac8b449adefaf50387b0c599",
+    "hash": "879f2a56efcbf1370a3be3c7b6a4aa34",
+    "content-hash": "7361f35e8e0d916ce91724928eb24e94",
     "packages": [
         {
             "name": "xrstf/composer-php52",
@@ -37,6 +37,45 @@
                 "MIT"
             ],
             "time": "2016-04-16 21:52:24"
+        },
+        {
+            "name": "yahnis-elsts/plugin-update-checker",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/YahnisElsts/plugin-update-checker.git",
+                "reference": "bcade9eb518231b2de56ffcf3e7375b04981d39f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/YahnisElsts/plugin-update-checker/zipball/bcade9eb518231b2de56ffcf3e7375b04981d39f",
+                "reference": "bcade9eb518231b2de56ffcf3e7375b04981d39f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yahnis Elsts",
+                    "email": "whiteshadow@w-shadow.com",
+                    "homepage": "http://w-shadow.com/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A custom update checker for WordPress plugins. Useful if you can't host your plugin in the official WP plugin repository but still want it to support automatic plugin updates.",
+            "homepage": "https://github.com/YahnisElsts/plugin-update-checker/",
+            "keywords": [
+                "automatic updates",
+                "plugin updates",
+                "wordpress"
+            ],
+            "time": "2016-05-11 15:28:19"
         }
     ],
     "packages-dev": [],

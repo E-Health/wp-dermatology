@@ -49,6 +49,11 @@ require 'vendor/autoload_52.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-dermbase.php';
 require_once plugin_dir_path( __FILE__ ) . 'includes/class-peelscore.php';
 
+/**
+ * Include other vendor plugins.
+ */
+require_once plugin_dir_path( __FILE__ ) . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
+
 
 /**
  * Main initiation class
@@ -114,6 +119,14 @@ final class WP_Dermatology {
 	protected $peelscore;
 
 	/**
+	 * Instance of WPD_Peelscore
+	 *
+	 * @since NEXT
+	 * @var WPD_MyUpdateChecker
+	 */	
+	protected $myUpdateChecker;
+
+	/**
 	 * Creates or returns an instance of this class.
 	 *
 	 * @since  NEXT
@@ -148,6 +161,11 @@ final class WP_Dermatology {
 		// Attach other plugin classes to the base plugin class.
 		$this->dermbase = new WPD_Dermbase( $this );
 		$this->peelscore = new WPD_Peelscore( $this );
+		// Update Checker
+		$this->myUpdateChecker = PucFactory::buildUpdateChecker(
+    		'http://nuchange.ca/wp-update-server/?action=get_metadata&slug=wp-dermatology',
+    		__FILE__
+		);
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
