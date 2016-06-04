@@ -33,4 +33,14 @@ $this->myUpdateChecker = PucFactory::buildUpdateChecker(
 ```
 * Gruntfile changed.
 
+## Options
+* cmb2 saves options in an array 
+* use the get options plugin to see the options
+```
+    $options = get_option('wp_dermatology_basic_options');
+        if(!array_key_exists ( 'chkbox_dermbase' , $options ) || $options['chkbox_dermbase'] != 'on')
+            add_filter( 'the_content', array( __CLASS__, 'get_dermbase' ) );
+```
+
+
 
