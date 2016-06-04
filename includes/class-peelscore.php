@@ -89,6 +89,7 @@ class WPD_Peelscore
             <!-- GulfDoctor.net peel score code end -->";
 
         }
+        apply_filters('wp_dermatology_peelscore', $content);//@TODO Document this filter
         return $content;
     }
 

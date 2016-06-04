@@ -252,6 +252,7 @@ function wp_dermatology_findTotal(){
     <small><a href='http://dermatologist.co.in/2015/03/tascderm.html' target='_blank'>More about TASCDerm.</a></small>
 </div>
         ";
+        apply_filters('wp_dermatology_tascderm', $content);//@TODO Document this filter
         return $content;
     }
 
@@ -290,7 +291,7 @@ function wp_dermatology_findTotal(){
 </div>
             ";
 
-
+        apply_filters('wp_dermatology_tascderm_interpretation', $content);//@TODO Document this filter
         return $content;
 
     }
