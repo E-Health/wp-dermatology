@@ -2,7 +2,7 @@
 /**
  * WP Dermatology Basic Options
  *
- * @since NEXT
+ * @since 0.1.1
  * @package WP Dermatology
  */
 
@@ -10,7 +10,7 @@
 /**
  * WP Dermatology Basic Options class.
  *
- * @since NEXT
+ * @since 0.1.1
  */
 class WPD_Basic_Options
 {
@@ -18,7 +18,7 @@ class WPD_Basic_Options
      * Parent plugin class
      *
      * @var    class
-     * @since  NEXT
+     * @since  0.1.1
      */
     protected $plugin = null;
 
@@ -26,7 +26,7 @@ class WPD_Basic_Options
      * Option key, and option page slug
      *
      * @var    string
-     * @since  NEXT
+     * @since  0.1.1
      */
     protected $key = 'wp_dermatology_basic_options';
 
@@ -34,7 +34,7 @@ class WPD_Basic_Options
      * Options page metabox id
      *
      * @var    string
-     * @since  NEXT
+     * @since  0.1.1
      */
     protected $metabox_id = 'wp_dermatology_basic_options_metabox';
 
@@ -42,7 +42,7 @@ class WPD_Basic_Options
      * Options Page title
      *
      * @var    string
-     * @since  NEXT
+     * @since  0.1.1
      */
     protected $title = '';
 
@@ -55,7 +55,7 @@ class WPD_Basic_Options
     /**
      * Constructor
      *
-     * @since  NEXT
+     * @since  0.1.1
      * @param  object $plugin Main plugin object.
      * @return void
      */
@@ -70,7 +70,7 @@ class WPD_Basic_Options
     /**
      * Initiate our hooks
      *
-     * @since  NEXT
+     * @since  0.1.1
      * @return void
      */
     public function hooks()
@@ -83,7 +83,7 @@ class WPD_Basic_Options
     /**
      * Register our setting to WP
      *
-     * @since  NEXT
+     * @since  0.1.1
      * @return void
      */
     public function admin_init()
@@ -94,7 +94,7 @@ class WPD_Basic_Options
     /**
      * Add menu options page
      *
-     * @since  NEXT
+     * @since  0.1.1
      * @return void
      */
     public function add_options_page()
@@ -114,7 +114,7 @@ class WPD_Basic_Options
     /**
      * Admin page markup. Mostly handled by CMB2
      *
-     * @since  NEXT
+     * @since  0.1.1
      * @return void
      */
     public function admin_page_display()
@@ -130,7 +130,7 @@ class WPD_Basic_Options
     /**
      * Add custom fields to the options page.
      *
-     * @since  NEXT
+     * @since  0.1.1
      * @return void
      */
     public function add_options_page_metabox()

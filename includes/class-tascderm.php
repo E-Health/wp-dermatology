@@ -249,6 +249,7 @@ function wp_dermatology_findTotal(){
         </table>
         <input type='submit' name='save_data' value='Score'/>
     </form>
+    <small><a href='http://dermatologist.co.in/2015/03/tascderm.html' target='_blank'>More about TASCDerm.</a></small>
 </div>
         ";
         return $content;
