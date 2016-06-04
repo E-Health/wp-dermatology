@@ -93,7 +93,7 @@ function wp_dermatology_findTotal(){
 </script>
 <div id='tascderm'>
     <h2>TASCDerm Scoring Table</h2>
-    <h3>Mean TASDerm Score:".$tascderm."</h3>
+    <h3>Mean TASCDerm Score: ".$tascderm." / 15</h3>
     <form action='".get_admin_url()."admin-post.php' method='post'>
         <input type='hidden' name='action' value='submit-form' />
         <input type='hidden' name='postId' value='".$post->ID."' />
