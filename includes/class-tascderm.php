@@ -43,6 +43,7 @@ class WPD_Tascderm
     public function hooks()
     {
         add_shortcode( 'tascderm', array( $this, 'render_tascderm' ));
+        add_shortcode( 'tascderm-i', array( $this, 'render_tascderm_interpretation' ));
         add_action('admin_post_nopriv_submit-form', array( $this, '_handle_form_action'));
         add_action('admin_post_submit-form', array( $this, '_handle_form_action'));
     }
@@ -74,10 +75,24 @@ class WPD_Tascderm
 
     public function render_tascderm()
     {
+        if (!is_single())
+            return;
+
         global $post;
         $tascderm = get_post_meta( $post->ID,
             '_wp_dermatology_tascderm', true );
 
+        //Options
+        $options = get_option('wp_dermatology_basic_options');
+        if(array_key_exists ( 'txt_tascderm_title' , $options ))
+            $tascderm_title = $options['txt_tascderm_title'];
+        else
+            $tascderm_title = 'TASCDerm Scoring Table';
+
+        if(array_key_exists ( 'txt_tascderm_score' , $options ))
+            $tascderm_score_title = $options['txt_tascderm_score'];
+        else
+            $tascderm_score_title = 'Mean TASCDerm Score';
 
         $content = "
 <script>
@@ -92,15 +107,15 @@ function wp_dermatology_findTotal(){
 }
 </script>
 <div id='tascderm'>
-    <h2>TASCDerm Scoring Table</h2>
-    <h3>Mean TASCDerm Score: ".$tascderm." / 15</h3>
+    <h3>".$tascderm_title."</h3>
     <form action='".get_admin_url()."admin-post.php' method='post'>
         <input type='hidden' name='action' value='submit-form' />
         <input type='hidden' name='postId' value='".$post->ID."' />
         <table class='tascderm-table'>
+        <caption>".$tascderm_score_title.": ".$tascderm." / 15</caption>
             <thead>
                 <tr>
-                    <th><i class='fa fa-sticky-note-o'></i>Criteria (Maximum score)</th>
+                    <th>Criteria</th>
                     <th>Score</th>
                 </tr>
             </thead>
@@ -242,12 +257,12 @@ function wp_dermatology_findTotal(){
     public function render_tascderm_interpretation()
     {
 
-        if (is_single()) {
+        if (!is_single())
+            return;
 
             $content = "
 <div id='tascderm-interpretation'>
     <table class='tascderm-table'>
-        <caption><i class='fa fa-star'></i>Interpretation is as follows:</caption>
         <tbody>
             <tr>
                 <td class='result'><strong>13-15</strong></td>
@@ -274,7 +289,7 @@ function wp_dermatology_findTotal(){
 </div>
             ";
 
-        }
+
         return $content;
 
     }

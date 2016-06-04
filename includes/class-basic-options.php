@@ -157,6 +157,20 @@ class WPD_Basic_Options {
             'type' => 'checkbox',
         ) );
 
+        $cmb->add_field( array(
+            'name'    => 'TASCDerm Table Title:',
+            'desc'    => '',
+            'default' => 'TASCDerm Scoring Table',
+            'id'      => 'txt_tascderm_title',
+            'type'    => 'text',
+        ) );
 
+        $cmb->add_field( array(
+            'name'    => 'TASCDerm Score Title:',
+            'desc'    => '',
+            'default' => 'Mean TASCDerm Score',
+            'id'      => 'txt_tascderm_score',
+            'type'    => 'text',
+        ) );
 	}
 }
