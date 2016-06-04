@@ -67,7 +67,7 @@ class WPD_Peelscore
         if (array_key_exists('wp_dermatology_peelscore', $_POST)) {
             update_post_meta($post_id,
                 '_wp_dermatology_peelscore',
-                $_POST['wp_dermatology_peelscore']
+                intval($_POST['wp_dermatology_peelscore'])
             );
         }
     }
