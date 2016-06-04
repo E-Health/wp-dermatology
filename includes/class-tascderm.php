@@ -56,13 +56,20 @@ class WPD_Tascderm
             $tascderm_entered = intval($_POST['tascderm']);//Only integer accepted
             $tascderm = get_post_meta($_POST['postId'],
                 '_wp_dermatology_tascderm', true);
+            $tascderm_count = get_post_meta($_POST['postId'],
+                '_wp_dermatology_tascderm_count', true);
             if ($tascderm_entered) {
                 $tascderm = ($tascderm_entered + $tascderm) / 2;
+                $tascderm_count++;
             }
 
             update_post_meta($_POST['postId'],
                 '_wp_dermatology_tascderm',
                 $tascderm
+            );
+            update_post_meta($_POST['postId'],
+                '_wp_dermatology_tascderm_count',
+                $tascderm_count
             );
         }
 
@@ -81,6 +88,8 @@ class WPD_Tascderm
         global $post;
         $tascderm = get_post_meta($post->ID,
             '_wp_dermatology_tascderm', true);
+        $tascderm_count = get_post_meta($post->ID,
+            '_wp_dermatology_tascderm_count', true);
 
         //Options
         $options = get_option('wp_dermatology_basic_options');
@@ -112,7 +121,7 @@ function wp_dermatology_findTotal(){
         <input type='hidden' name='action' value='submit-form' />
         <input type='hidden' name='postId' value='" . $post->ID . "' />
         <table class='tascderm-table'>
-        <caption>" . $tascderm_score_title . ": " . $tascderm . " / 15</caption>
+        <caption>" . $tascderm_score_title . ": " . $tascderm . " / 15 [".$tascderm_count."]</caption>
             <thead>
                 <tr>
                     <th>Criteria</th>
