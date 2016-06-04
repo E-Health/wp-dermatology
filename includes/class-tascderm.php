@@ -53,7 +53,7 @@ class WPD_Tascderm
 
 
         if (isset($_POST['tascderm'])) {
-            $tascderm_entered = $_POST['tascderm'];
+            $tascderm_entered = intval($_POST['tascderm']);//Only integer accepted
             $tascderm = get_post_meta($_POST['postId'],
                 '_wp_dermatology_tascderm', true);
             if ($tascderm_entered) {
