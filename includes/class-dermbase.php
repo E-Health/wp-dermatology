@@ -49,14 +49,23 @@ class WPD_Dermbase
 
     public static function get_dermbase($content)
     {
-        $client = new SoapClient("http://gulfdoctor.net/dermbase/wsannotation.php?wsdl");
-        $results = $client->getAnnotation($content);
-        $to_return = "";
-        foreach ($results as $result) {
 
-            $to_return .= $result->text;
+        global $post;
+        $to_return = get_transient( $post->ID );
 
+        if( false === $to_return ) {
+            // Transient expired, refresh the data
+            $client = new SoapClient("http://gulfdoctor.net/dermbase/wsannotation.php?wsdl");
+            $results = $client->getAnnotation($content);
+            $to_return = "";
+            foreach ($results as $result) {
+
+                $to_return .= $result->text;
+
+            }
+            set_transient( $post->ID, $to_return, 60 ); // 1 min cache
         }
+
         return $to_return;
 
     }
