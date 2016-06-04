@@ -39,20 +39,22 @@ class WPD_Dermbase {
 	 * @return void
 	 */
 	public function hooks() {
-        add_filter( 'the_content', array( __CLASS__, 'get_dermbase' ) );
+        $options = get_option('wp_dermatology_basic_options');
+        if(!array_key_exists ( 'chkbox_dermbase' , $options ) || $options['chkbox_dermbase'] != 'on')
+            add_filter( 'the_content', array( __CLASS__, 'get_dermbase' ) );
 	}
 
 	public static function get_dermbase($content)
 	{
-		$client = new SoapClient("http://gulfdoctor.net/dermbase/wsannotation.php?wsdl");
-        $results = $client->getAnnotation($content);
-        $to_return = "";
-        foreach($results as $result){
+            $client = new SoapClient("http://gulfdoctor.net/dermbase/wsannotation.php?wsdl");
+            $results = $client->getAnnotation($content);
+            $to_return = "";
+            foreach ($results as $result) {
 
-            $to_return .= $result->text;
+                $to_return .= $result->text;
 
-        }
+            }
+            return $to_return;
 
-        return $to_return;
 	}
 }

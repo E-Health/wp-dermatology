@@ -54,6 +54,7 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/class-tascderm.php';
  * Include other vendor plugins.
  */
 require_once plugin_dir_path( __FILE__ ) . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
+require_once plugin_dir_path( __FILE__ ) . 'vendor/webdevstudios/cmb2/init.php';
 
 
 /**
@@ -136,6 +137,14 @@ final class WP_Dermatology {
 	protected $myUpdateChecker;
 
 	/**
+	 * Instance of WPD_Basic_Options
+	 *
+	 * @since NEXT
+	 * @var WPD_Basic_Options
+	 */
+	protected $basic_options;
+
+	/**
 	 * Creates or returns an instance of this class.
 	 *
 	 * @since  0.1.1
@@ -176,6 +185,7 @@ final class WP_Dermatology {
     		'http://nuchange.ca/wp-update-server/?action=get_metadata&slug=wp-dermatology',
     		__FILE__
 		);
+		$this->basic_options = new WPD_Basic_Options( $this );
 	} // END OF PLUGIN CLASSES FUNCTION
 
 	/**
@@ -302,6 +312,7 @@ final class WP_Dermatology {
 			case 'dermbase':
 			case 'peelscore':
 			case 'tascderm':
+			case 'basic_options':
 				return $this->$field;
 			default:
 				throw new Exception( 'Invalid '. __CLASS__ .' property: ' . $field );
