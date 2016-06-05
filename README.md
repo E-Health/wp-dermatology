@@ -1,10 +1,10 @@
 # WP Dermatology #
 **Contributors:**      Bell Eapen
 **Donate link:**       http://dermatologist.co.in/wp-dermatology
-**Tags:**			   health, skin, beauty
+**Tags:**
 **Requires at least:** 3.0
 **Tested up to:**      4.5.2
-**Stable tag:**        1.2.0
+**Stable tag:**        1.2.3
 **License:**           GPLv2
 **License URI:**       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,15 @@ A plugin for dermatology bloggers and clinic owners!.
 
 ## Description ##
 
-WP-Dermatology is a WordPress plugin that gives dermatology bloggers the power they always wanted. Currently, it supports the [dermbase](gulfdoctor.net/dermbase) functionality to annotate clinical terms in postings, [peelscoring](http://gulfdoctor.net/peelscore/) technologies / products and adding [TASCDerm](http://dermatologist.co.in/2015/03/tascderm.html) scoring tables to journal article reviews.
+WP-Dermatology is a WordPress plugin that gives dermatology bloggers the power they always wanted. Currently, it supports the [dermbase](http://gulfdoctor.net/dermbase/) functionality to annotate clinical terms in posts, [peelscoring](http://gulfdoctor.net/peelscore/) technologies / products and adding [TASCDerm](http://dermatologist.co.in/2015/03/tascderm.html) tables to journal article reviews.
+
+What to expect in the future versions
+
+1. [Skin tone measurement](gulfdoctor.net/charm)
+2. Skin typing app
+3. And much more......
+
+[Contact Me](http://gulfdoctor.net/contactme.htm) ##
 
 ## Installation ##
 
@@ -31,7 +39,7 @@ WP-Dermatology is a WordPress plugin that gives dermatology bloggers the power t
 
 ### What is Dermbase? ###
 
-Dermbase is a self-learning dermatology knowledge base with various functionalities such as a popular dermatology CDSS. The dermbase functionality in WP-Dermatology helps in annotating dermatology terms in your posts. [Read more about DermBASE](gulfdoctor.net/dermbase)
+Dermbase is a self-learning dermatology knowledge base with various functionalities such as a popular dermatology CDSS. The dermbase functionality in WP-Dermatology helps in annotating dermatology terms in your posts. [Read more about DermBASE](http://gulfdoctor.net/dermbase/)
 
 ### What is peelscore? ###
 
@@ -53,17 +61,10 @@ TASCDerm is currently maintained by [SKINAID](http://www.skinaid.eu/tascderm/).
 
 ## Changelog ##
 
-### 1.2.0 ###
+### 1.2.3 ###
 * First major release
 
 ## Upgrade Notice ##
 
-### 1.2.0 ###
+### 1.2.3 ###
 First major release.
-
-## What to expect in the future versions ##
-* [Skin tone measurement](gulfdoctor.net/charm)
-* Skin typing app
-* And much more......
-
-## [Contact Me](http://gulfdoctor.net/contactme.htm) ##

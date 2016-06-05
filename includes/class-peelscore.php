@@ -46,7 +46,9 @@ class WPD_Peelscore
         add_action('add_meta_boxes', array($this, 'add_meta_box'));
         add_action('save_post', array($this, 'save'));
 
-        $options = get_option('wp_dermatology_basic_options');
+        $options = array();
+        if(get_option('wp_dermatology_basic_options'))
+            $options = get_option('wp_dermatology_basic_options');
         if (!array_key_exists('chkbox_peelscore', $options) || $options['chkbox_peelscore'] != 'on')
             add_filter('the_content', array($this, 'render_peelscore'));
 

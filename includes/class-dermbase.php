@@ -42,7 +42,9 @@ class WPD_Dermbase
      */
     public function hooks()
     {
-        $options = get_option('wp_dermatology_basic_options');
+        $options = array();
+        if(get_option('wp_dermatology_basic_options'))
+            $options = get_option('wp_dermatology_basic_options');
         if (!array_key_exists('chkbox_dermbase', $options) || $options['chkbox_dermbase'] != 'on')
             add_filter('the_content', array(__CLASS__, 'get_dermbase'));
     }
