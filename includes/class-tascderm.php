@@ -92,7 +92,9 @@ class WPD_Tascderm
             '_wp_dermatology_tascderm_count', true);
 
         //Options
-        $options = get_option('wp_dermatology_basic_options');
+        $options = array();
+        if(get_option('wp_dermatology_basic_options'))
+            $options = get_option('wp_dermatology_basic_options');
         if (array_key_exists('txt_tascderm_title', $options))
             $tascderm_title = $options['txt_tascderm_title'];
         else
