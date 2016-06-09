@@ -64,7 +64,7 @@ class WPD_Basic_Options
         $this->plugin = $plugin;
         $this->hooks();
 
-        $this->title = __('WP Dermatology Basic Options', 'wp-dermatology');
+        $this->title = __('WP Dermatology', 'wp-dermatology');
     }
 
     /**
