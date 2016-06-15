@@ -4,7 +4,7 @@
 **Tags:**
 **Requires at least:** 3.0
 **Tested up to:**      4.5.2
-**Stable tag:**        1.2.5
+**Stable tag:**        2.0.0
 **License:**           GPLv2
 **License URI:**       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,10 +61,16 @@ TASCDerm is currently maintained by [SKINAID](http://www.skinaid.eu/tascderm/).
 
 ## Changelog ##
 
+### 2.0.0 ###
+* SkinHelpDesk Widget Added
+
 ### 1.2.3 ###
 * First major release
 
 ## Upgrade Notice ##
 
+### 2.0.0 ###
+* SkinHelpDesk Widget Added
+
 ### 1.2.3 ###
-First major release.
+* First major release.
