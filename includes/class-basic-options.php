@@ -120,10 +120,21 @@ class WPD_Basic_Options
     public function admin_page_display()
     {
         ?>
-        <div class="wrap cmb2-options-page <?php echo esc_attr($this->key); ?>">
+        <div style="float: left;" class="wrap cmb2-options-page <?php echo esc_attr($this->key); ?>">
             <h2><?php echo esc_html(get_admin_page_title()); ?></h2>
             <?php cmb2_metabox_form($this->metabox_id, $this->key); ?>
         </div>
+        <div class="wrap wpd-admin-panel" style="float: right;width: 180px;margin-top: 10px;border: 1px solid #CCCCCC;background-color: #FFFEEB;">
+            <h3>More Dermatology Tools!</h3>
+            <ul>
+                <li><a target="_blank" href="http://skinhelpdesk.in">Register your clinic FREE!</a></li>
+                <li><a target="_blank" href="http://docpg.co.in">Get Dermatology Software and Plugin Add-ons!</a></li>
+                <li><a target="_blank" href="http://dermatologist.co.in">Join Dermatologists Sans Borders!</a></li>
+                <li><a target="_blank" href="http://nuchange.com">Setup open-source EMR!</a></li>
+                <li><a target="_blank" href="http://dermatologist.co.in/wp-dermatology">More details about this plugin.</a></li>
+            </ul>
+        </div>
+
         <?php
     }
 
