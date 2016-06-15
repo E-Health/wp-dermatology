@@ -3,7 +3,7 @@
  * Plugin Name: WP Dermatology
  * Plugin URI:  http://dermatologist.co.in/wp-dermatology
  * Description: A plugin for dermatology bloggers and clinic owners!
- * Version:     1.2.3
+ * Version:     2.0.0
  * Author:      Bell Eapen
  * Author URI:  http://nuchange.ca/ehealth-resume
  * Donate link: http://dermatologist.co.in/wp-dermatology
@@ -14,7 +14,7 @@
  * @link http://dermatologist.co.in/wp-dermatology
  *
  * @package WP Dermatology
- * @version 1.2.3
+ * @version 2.0.0
  */
 
 /**
@@ -49,6 +49,7 @@ require 'vendor/autoload_52.php';
 require_once plugin_dir_path(__FILE__) . 'includes/class-dermbase.php';
 require_once plugin_dir_path(__FILE__) . 'includes/class-peelscore.php';
 require_once plugin_dir_path(__FILE__) . 'includes/class-tascderm.php';
+require_once plugin_dir_path(__FILE__) . 'includes/class-skinhelpdesk-widget.php';
 
 /**
  * Include other vendor plugins.
@@ -56,6 +57,8 @@ require_once plugin_dir_path(__FILE__) . 'includes/class-tascderm.php';
 require_once plugin_dir_path(__FILE__) . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
 require_once plugin_dir_path(__FILE__) . 'vendor/webdevstudios/cmb2/init.php';
 
+//Define ID
+define('WP_DERMATOLOY', 'WP Dermatology' );
 
 /**
  * Main initiation class
@@ -71,7 +74,7 @@ final class WP_Dermatology
      * @var  string
      * @since  0.1.1
      */
-    const VERSION = '1.2.3';
+    const VERSION = '2.0.0';
 
     /**
      * URL of plugin directory
