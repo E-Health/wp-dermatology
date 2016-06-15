@@ -61,15 +61,15 @@ class WPD_Skinhelpdesk_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 
-		$this->widget_name          = esc_html__( 'WP Dermatology Skinhelpdesk Widget', 'wp-dermatology' );
-		$this->default_widget_title = esc_html__( 'WP Dermatology Skinhelpdesk Widget', 'wp-dermatology' );
+		$this->widget_name          = esc_html__( 'Skinhelpdesk Appointment Widget', 'wp-dermatology' );
+		$this->default_widget_title = esc_html__( 'Skinhelpdesk Appointment Widget', 'wp-dermatology' );
 
 		parent::__construct(
 			$this->widget_slug,
 			$this->widget_name,
 			array(
 				'classname'   => $this->widget_slug,
-				'description' => esc_html__( 'A widget boilerplate description.', 'wp-dermatology' ),
+				'description' => esc_html__( 'Widget to display Skinhelkpdesk.in appointment link.', 'wp-dermatology' ),
 			)
 		);
 

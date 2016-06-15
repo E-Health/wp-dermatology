@@ -49,6 +49,7 @@ require 'vendor/autoload_52.php';
 require_once plugin_dir_path(__FILE__) . 'includes/class-dermbase.php';
 require_once plugin_dir_path(__FILE__) . 'includes/class-peelscore.php';
 require_once plugin_dir_path(__FILE__) . 'includes/class-tascderm.php';
+require_once plugin_dir_path(__FILE__) . 'includes/class-skinhelpdesk-widget.php';
 
 /**
  * Include other vendor plugins.
