@@ -45,15 +45,6 @@ class WPD_Skinhelpdesk_Widget extends WP_Widget {
 
 
 	/**
-	 * Default widget slug displayed in Widgets dashboard.
-	 * Set in __construct since __() shouldn't take a variable.
-	 *
-	 * @var string
-	 * @since  NEXT
-	 */
-	protected $default_widget_slug = '';
-
-	/**
 	 * Shortcode name for this widget
 	 *
 	 * @var string
@@ -70,9 +61,8 @@ class WPD_Skinhelpdesk_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 
-		$this->widget_name          = esc_html__( 'Skinhelpdesk Appointment Widget', 'wp-dermatology' );
-		$this->default_widget_title = esc_html__( 'Skinhelpdesk Appointment Widget', 'wp-dermatology' );
-		$this->default_widget_slug = esc_html__( 'test-clinic', 'wp-dermatology' );
+		$this->widget_name          = esc_html__( 'Dermatology Appointments', 'wp-dermatology' );
+		$this->default_widget_title = esc_html__( 'Dermatology Appointments', 'wp-dermatology' );
 
 		parent::__construct(
 			$this->widget_slug,
@@ -142,10 +132,7 @@ class WPD_Skinhelpdesk_Widget extends WP_Widget {
 				'before_title'  => '',
 				'after_title'   => '',
 				'title'         => '',
-				'before_slug'  => '',
-				'after_slug'   => '',
-				'slug'         => '',
-				'text'          => '',
+                'text'          => 'test-clinic',
 			),
 			(array) $atts,
 			self::$shortcode
@@ -157,13 +144,11 @@ class WPD_Skinhelpdesk_Widget extends WP_Widget {
 		// Title.
 		$widget .= ( $atts['title'] ) ? $atts['before_title'] . esc_html( $atts['title'] ) . $atts['after_title'] : '';
 
-		// Slug.
-		$widget .= ( $atts['slug'] ) ? $atts['before_slug'] . esc_html( $atts['slug'] ) . $atts['after_slug'] : '';
 
-		$widget .= wpautop( wp_kses_post( $atts['text'] ) );
+		//$widget .= wpautop( wp_kses_post( $atts['text'] ) );
 
 		// Frame
-        $widget .= '<iframe src="http://skinhelpdesk.in/user/widget/'.esc_html( $atts['slug'] ).'" width="200" height="300" scrolling="no"></iframe>';
+        $widget .= '<iframe src="http://skinhelpdesk.in/user/widget/'.esc_html( $atts['text'] ).'" width="200" height="300" scrolling="no"></iframe>';
 
 		// After widget hook.
 		$widget .= $atts['after_widget'];
@@ -187,9 +172,6 @@ class WPD_Skinhelpdesk_Widget extends WP_Widget {
 
 		// Sanitize title before saving to database.
 		$instance['title'] = sanitize_text_field( $new_instance['title'] );
-
-		// Sanitize slug before saving to database.
-		$instance['slug'] = sanitize_text_field( $new_instance['slug'] );
 
 		// Sanitize text before saving to database.
 		if ( current_user_can( 'unfiltered_html' ) ) {
@@ -216,8 +198,7 @@ class WPD_Skinhelpdesk_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance,
 			array(
 				'title' => $this->default_widget_title,
-				'slug' => $this->default_widget_slug,
-				'text'  => '',
+				'text'  => 'test-clinic',
 			)
 		);
 
@@ -225,12 +206,9 @@ class WPD_Skinhelpdesk_Widget extends WP_Widget {
 		<p><label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'wp-dermatology' ); ?></label>
 		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_html( $instance['title'] ); ?>" placeholder="optional" /></p>
 
-		<p><label for="<?php echo esc_attr( $this->get_field_id( 'slug' ) ); ?>"><?php esc_html_e( 'Slug:', 'wp-dermatology' ); ?></label>
-			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'slug' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'slug' ) ); ?>" type="text" value="<?php echo esc_html( $instance['slug'] ); ?>" placeholder="optional" /></p>
-
-		<p><label for="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>"><?php esc_html_e( 'Text:', 'wp-dermatology' ); ?></label>
-		<textarea class="widefat" rows="16" cols="20" id="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'text' ) ); ?>"><?php echo esc_textarea( $instance['text'] ); ?></textarea></p>
-		<p class="description"><?php esc_html_e( 'Basic HTML tags are allowed.', 'wp-dermatology' ); ?></p>
+		<p><label for="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>"><?php esc_html_e( 'Clinic Slug:', 'wp-dermatology' ); ?></label>
+		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'text' ) ); ?>" type="text" value="<?php echo esc_html( $instance['text'] ); ?>" placeholder="test-clinic" /></p>
+		<p class="description"><?php esc_html_e( 'Enter you clinic slug at skinhelpdesk.in', 'wp-dermatology' ); ?></p>
 		<?php
 	}
 }

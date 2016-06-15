@@ -171,7 +171,7 @@ class WPD_Basic_Options
                 'type' => 'checkbox',
             ));
         }
-        if(!defined('WP_DERMATOLOGY_SKIN_TYPE')) {
+        if(defined('WP_DERMATOLOGY_SKIN_TYPE')) {
             $cmb->add_field(array(
                 'name' => 'SkinType',
                 'desc' => 'Disable?',
