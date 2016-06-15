@@ -162,6 +162,24 @@ class WPD_Basic_Options
             'type' => 'checkbox',
         ));
 
+        // Add-on Settings
+        if(defined('WP_DERMATOLOGY_SKIN_TONE')) {
+            $cmb->add_field(array(
+                'name' => 'SkinTone',
+                'desc' => 'Disable?',
+                'id' => 'chkbox_skintone',
+                'type' => 'checkbox',
+            ));
+        }
+        if(!defined('WP_DERMATOLOGY_SKIN_TYPE')) {
+            $cmb->add_field(array(
+                'name' => 'SkinType',
+                'desc' => 'Disable?',
+                'id' => 'chkbox_skintype',
+                'type' => 'checkbox',
+            ));
+        }
+
         $cmb->add_field(array(
             'name' => 'TASCDerm Table Title:',
             'desc' => '',

@@ -56,6 +56,8 @@ require_once plugin_dir_path(__FILE__) . 'includes/class-tascderm.php';
 require_once plugin_dir_path(__FILE__) . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
 require_once plugin_dir_path(__FILE__) . 'vendor/webdevstudios/cmb2/init.php';
 
+//Define ID
+define('WP_DERMATOLOY', 'WP Dermatology' );
 
 /**
  * Main initiation class
