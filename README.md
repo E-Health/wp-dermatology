@@ -4,7 +4,7 @@
 **Tags:**
 **Requires at least:** 3.0
 **Tested up to:**      4.5.2
-**Stable tag:**        2.0.0
+**Stable tag:**        2.0.1
 **License:**           GPLv2
 **License URI:**       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,9 @@ Peelscore is a rating system for dermatology procedures, machines and products. 
 [TASCDerm](http://dermatologist.co.in/2015/03/tascderm.html) is an objective scoring system for clinical research in cosmetic dermatology as reported in journals. The tascderm function lets you add a TASCDerm table to any post and track the mean score given by raters. Use the short code [tascderm] in your post.
 
 TASCDerm is currently maintained by [SKINAID](http://www.skinaid.eu/tascderm/).
+
+### What is SkinHelpDesk Widget? ###
+[http://skinhelpdesk.in](http://skinhelpdesk.in) is a free listing service for cosmetic dermatology clinics with appointment scheduling and dual rating. You can add this widget after registration. This widget allows users to book appointments directly from your website. This service is available in India and UAE only.
 
 ## Screenshots ##
 
