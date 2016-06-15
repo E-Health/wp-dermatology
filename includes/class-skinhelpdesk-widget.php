@@ -144,7 +144,7 @@ class WPD_Skinhelpdesk_Widget extends WP_Widget {
 				'title'         => '',
 				'before_slug'  => '',
 				'after_slug'   => '',
-				'slug'         => 'Clinic Slug',
+				'slug'         => '',
 				'text'          => '',
 			),
 			(array) $atts,
@@ -161,6 +161,9 @@ class WPD_Skinhelpdesk_Widget extends WP_Widget {
 		$widget .= ( $atts['slug'] ) ? $atts['before_slug'] . esc_html( $atts['slug'] ) . $atts['after_slug'] : '';
 
 		$widget .= wpautop( wp_kses_post( $atts['text'] ) );
+
+		// Frame
+        $widget .= '<iframe src="http://skinhelpdesk.in/user/widget/'.esc_html( $atts['slug'] ).'" width="200" height="300" scrolling="no"></iframe>';
 
 		// After widget hook.
 		$widget .= $atts['after_widget'];
