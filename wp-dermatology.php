@@ -3,7 +3,7 @@
  * Plugin Name: WP Dermatology
  * Plugin URI:  http://dermatologist.co.in/wp-dermatology
  * Description: A plugin for dermatology bloggers and clinic owners!
- * Version:     2.0.0
+ * Version:     2.0.1
  * Author:      Bell Eapen
  * Author URI:  http://nuchange.ca/ehealth-resume
  * Donate link: http://dermatologist.co.in/wp-dermatology
@@ -14,7 +14,7 @@
  * @link http://dermatologist.co.in/wp-dermatology
  *
  * @package WP Dermatology
- * @version 2.0.0
+ * @version 2.0.1
  */
 
 /**
@@ -74,7 +74,7 @@ final class WP_Dermatology
      * @var  string
      * @since  0.1.1
      */
-    const VERSION = '2.0.0';
+    const VERSION = '2.0.1';
 
     /**
      * URL of plugin directory
