@@ -24,6 +24,7 @@ if (is_multisite())
             delete_post_meta_by_key('_wp_dermatology_peelscore');
             delete_post_meta_by_key('_wp_dermatology_tascderm');
             delete_post_meta_by_key('_wp_dermatology_tascderm_count');
+            unregister_widget( 'WPD_Skinhelpdesk_Widget' );
         }
     }
 } else {
@@ -31,5 +32,6 @@ if (is_multisite())
     delete_post_meta_by_key('_wp_dermatology_peelscore');
     delete_post_meta_by_key('_wp_dermatology_tascderm');
     delete_post_meta_by_key('_wp_dermatology_tascderm_count');
+    unregister_widget( 'WPD_Skinhelpdesk_Widget' );
 
 }
