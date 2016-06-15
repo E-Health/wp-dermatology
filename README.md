@@ -4,7 +4,7 @@
 **Tags:**
 **Requires at least:** 3.0
 **Tested up to:**      4.5.2
-**Stable tag:**        2.0.0
+**Stable tag:**        2.0.1
 **License:**           GPLv2
 **License URI:**       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,13 +51,23 @@ Peelscore is a rating system for dermatology procedures, machines and products. 
 
 TASCDerm is currently maintained by [SKINAID](http://www.skinaid.eu/tascderm/).
 
+### What is SkinHelpDesk Widget? ###
+[http://skinhelpdesk.in](http://skinhelpdesk.in) is a free listing service for cosmetic dermatology clinics with appointment scheduling and dual rating. You can add this widget after registration. This widget allows users to book appointments directly from your website. This service is available in India and UAE only.
+
 ## Screenshots ##
 
 1. The WP-Options page.
+![The WP-Options page](https://raw.github.com/dermatologist/wp-dermatology/master/assets/screenshot-1.png)
 2. Dermbase in action with dermatology terms annotated.
+![Dermbase in action with dermatology terms annotated](https://raw.github.com/dermatologist/wp-dermatology/master/assets/screenshot-2.png)
 3. Peelscore display.
+![Peelscore display](https://raw.github.com/dermatologist/wp-dermatology/master/assets/screenshot-3.png)
 4. TASCDerm Table. Mean TASCDerm score and the total number of responses are displayed at the top.
+![TASCDerm Table](https://raw.github.com/dermatologist/wp-dermatology/master/assets/screenshot-4.png)
 5. The TASCDerm interpretation table.
+![The TASCDerm interpretation table](https://raw.github.com/dermatologist/wp-dermatology/master/assets/screenshot-5.png)
+6. SkinHelpDesk Appointment Widget
+![SkinHelpDesk Appointment Widget](https://raw.github.com/dermatologist/wp-dermatology/master/assets/screenshot-6.png)
 
 ## Changelog ##
 
